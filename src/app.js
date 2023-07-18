@@ -5,11 +5,14 @@ const initModels = require('./models/initModels')
 const userRoutes = require('./routes/users.routes')
 const categoryRoutes = require('./routes/categories.routes')
 const todoRoutes=require('./routes/todos.routes')
+const cors = require('cors')
 
 initModels()
 
+
 const app= express()
 
+app.use(cors())
 app.use(express.json())
 
 //{alter: true}
