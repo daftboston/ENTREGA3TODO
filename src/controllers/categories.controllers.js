@@ -1,6 +1,16 @@
 const Categories = require('../models/categories.model')
 
-
+// crear categorias
+const createCategories= async (req, res, next) => {
+    try {
+        const {name}= req.body
+        
+        await Categories.create ({name})
+        res.status(201).send()
+    } catch (error) {
+        next (error)
+    }
+}
 
 // obtener categorias
 const getCategories = async (req,res)=> {
@@ -14,5 +24,6 @@ const getCategories = async (req,res)=> {
 }
 
 module.exports={
-    getCategories
+    getCategories,
+    createCategories
 }
